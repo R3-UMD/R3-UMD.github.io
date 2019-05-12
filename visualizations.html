@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Visualizations</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
 
 </head>
 <body>
@@ -29,16 +31,55 @@
   </div>
 </nav>
 <div class="container">
-    <div class="col">
+    <div class="col" id="main_col">
         <div class="row">
-        <div class='tableauPlaceholder' id='viz1553479140679' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DM&#47;DMVHealth&#47;Prevalenceofpoormentalhealthsmokingandteethloss&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='DMVHealth&#47;Prevalenceofpoormentalhealthsmokingandteethloss' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DM&#47;DMVHealth&#47;Prevalenceofpoormentalhealthsmokingandteethloss&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1553479140679');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="btn-group dropleft" style="padding-left: 7.5em">
+                <button class="btn btn-warning dropdown-toggle" type="button" id="question_select" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Health Question
+                </button>
+            <div class="dropdown-menu" aria-labelledby="question_select" style="font-size: 0.6rem;">
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Annual Checkup</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Arthritis</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Binge Drinking</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Cancer (except skin)</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Cholesterol Screening</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Chronic Kidney Disease</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Colorectal Cancer Screening</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">COPD</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Core preventive services for older men</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Core preventive services for older women</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Coronary Heart Disease</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Current Asthma</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Current Smoking</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Dental Visit</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Diabetes</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Health Insurance</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">High Blood Pressure</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">High Cholesterol</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Mammography</a>
+                <a class="dropdown-item active active-bar" href="#" onclick="draw(this.classList, this.innerText)">Mental Health</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Obesity</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Pap Smear Test</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Physical Health</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Physical Inactivity</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Sleep <7 hours</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Stroke</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Taking BP Medication</a>
+                <a class="dropdown-item" href="#" onclick="draw(this.classList, this.innerText)">Teeth Loss</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col"><svg id="bar_left"></svg></div>
+            <div class="col"><svg id="bar_right"></svg></div>
         </div>
     </div>
 </div>
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="script.js"></script>
 </body>
 </html>
