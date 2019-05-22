@@ -1,4 +1,3 @@
-
 const dropdown = document.getElementById('question_select');
 
 const width = +document.getElementById('main_col').offsetWidth/2.15;
