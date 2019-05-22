@@ -62,8 +62,8 @@ function renderLeft(data, question) {
 
     const bars = document.getElementsByClassName('left_bar');
     for (i=0; i < bars.length; i++) {
-        const state = bars[i].__data__.State;
-        if (state === 'MD' || state === 'DC' || state === 'VA') {
+        const location = bars[i].__data__.Location;
+        if (location === 'Baltimore, MD' || location === 'Washington, DC' || location === 'Alexandria, VA' || location === 'Richmond, VA') {
             bars[i].style.fill = '#ffc107';
             }
         $(bars[i])
