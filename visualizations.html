@@ -84,7 +84,43 @@
             <p>This notebook looks at which health questions have the highest correlation to mental health. There's also a map of census tract's mental health prevalences.</p>
         </div>
         <div class="row">
-
+           <div class="btn-group dropleft">
+                <button class="btn btn-warning dropdown-toggle" style="margin-left: 2.5em;" type="button" id="scatter_drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Health Question
+                </button>
+            <div class="dropdown-menu" aria-labelledby="question_select" style="font-size: 0.6rem;">
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Annual Checkup</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Arthritis</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Binge Drinking</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Cancer (except skin)</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Cholesterol Screening</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Chronic Kidney Disease</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Colorectal Cancer Screening</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">COPD</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Core preventive services for older men</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Core preventive services for older women</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Coronary Heart Disease</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Current Asthma</a>
+                <a class="dropdown-item active active-scat" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Current Smoking</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Dental Visit</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Diabetes</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Health Insurance</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">High Blood Pressure</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">High Cholesterol</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Mammography</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Obesity</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Pap Smear Test</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Physical Health</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Physical Inactivity</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Sleep <7 hours</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Stroke</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Taking BP Medication</a>
+                <a class="dropdown-item" href="#scatter_drop" onclick="scatter(this.classList, this.innerText)">Teeth Loss</a>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <svg id="scatter"></svg>
         </div>
     </div>
 </div>
@@ -93,5 +129,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="Scripts/bar.js"></script>
+<script src="Scripts/scatter.js"></script>
 </body>
 </html>

@@ -13,11 +13,6 @@ const right = d3.select('#bar_right')
     .attr('width', width)
     .attr('height', height);
 
-function color(a) {
-    console.log(a);
-
-}
-
 function renderLeft(data, question) {
     if (L.firstChild) {L.innerHTML = ''}
 
@@ -56,7 +51,7 @@ function renderLeft(data, question) {
             .attr('width', d => xScale(xValue(d)))
             .attr('height', yScale.bandwidth())
             .attr('class', 'left_bar')
-            .attr('style', `fill: ${'black'}`);
+            .attr('style', 'fill: black');
 
 
     const bars = document.getElementsByClassName('left_bar');
